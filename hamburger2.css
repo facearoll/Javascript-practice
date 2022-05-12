@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+header{
+    background-color: black;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+li{
+    list-style: none;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 80px;
+    padding: 0 24px;
+}
+.nav-branding{
+    font-size: 2rem;
+}
+.nav-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+.nav-link{
+    transition: 0.7s ease;
+}
+.nav-link:hover{
+    color: dodgerblue;
+}
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
+}
+/* Main CSS starts here */
+
+main{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 0.4fr 1fr 1fr 1fr 0.4fr;
+    background-color: rgb(236, 240, 240);
+}
+.main-article{
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    background-color: white;
+    border-radius: 5%   ;
+    -webkit-box-shadow: 5px 5px 5px 5px #FFFFFF; 
+    box-shadow: 5px 5px 5px 5px #FFFFFF;
+    display: grid;
+    grid-template-columns: 0.1fr 2fr 0.1fr;
+    grid-template-rows: 0.5fr 1fr 0.5fr;
+    padding: 24px 24px;  
+}
+.spacing{
+    width: 25%;
+}
+.likes{
+    max-height: 100%;
+    min-width: 30px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgba(215, 205, 210, 0.8);
+    color: white;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction:column ;
+    grid-column: 1 / 1;
+    grid-row: 2 / 3;
+    gap: 5%;
+}
+.likes span{
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.likes span.num{
+    font-size: 16px;
+    pointer-events: none;
+}
+.profile{
+    grid-column: 2 / 4;
+    grid-row: 1 / 1;
+    display: flex;
+    
+    gap: 3%;
+    padding-left: 5%;
+}
+.one{
+    background-image: url(/images/avatar-michelle.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.profile p span{
+    color: gainsboro;
+    margin-right: 0 auto;
+}
+
+.reply button{
+    border: none;
+    outline: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;     
+}
+
+.paragraph{
+    grid-column: 2 / 4;
+    grid-row: 2 / 4;
+    padding: 24px 10px 15px 15px;
+}
+
+
+@media(max-width:760px){
+    .hamburger{
+        display: block;
+    }
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav-menu{
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        gap: 0;
+        background-color:#262626;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+    .nav-item{
+        margin: 16px 0;
+    }
+    .nav-menu.active{
+        left: 0;
+    }     
+}
